@@ -1,25 +1,29 @@
 import React from "react";
 import './App.css';
-import Loader from "react-loader-spinner";
-import Search from "./search.js"
+//import Loader from "react-loader-spinner";
+//import Search from "./citySearch.js";
+import EntryForm from "./EntryForm.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import background from "./media/01d-vid.mp4";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Loader 
-        type = "Grid"
-        color= "#00BFFF"
-        height={100}
-        width={100}
-        timeout={5000}
-        />
         <h1>
           Welcome to the Weather App
         </h1>
-        <button>Current Location</button>
-        <Search />
       </header>
+      <main className="App-main">
+      <video id="background-video"
+        className="videoTag"
+        autoPlay
+        muted
+        loop
+        src={background}
+      />
+      <EntryForm/>
+      </main>
       <footer className="App-footer">
         <p className="open-source-code">
           <a className="App-link" href="https://github.com/lambys-89/shecodes-plus-project">
