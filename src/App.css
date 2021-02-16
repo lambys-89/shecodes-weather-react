@@ -10,7 +10,7 @@
 
 
 .App-header, .App-footer {
-  background-color: #282c34;
+  background-color: #105160;
   color: white;
 }
 
@@ -56,6 +56,10 @@
   font-size: 40px;
 }
 
+#pageTitle {
+  font-size: 80px;
+}
+
 p {
   margin:0;
 }
@@ -81,28 +85,39 @@ p {
 .split-half-1-2{
   justify-content: right;
   padding: 2 0;
+  vertical-align: unset;
 }
 
 .split-half-2-2{
   justify-content: left;
   padding: 2 0;
+  vertical-align: unset;
 }
 
 #current-location-but {
   color: white;
-  background-color: #282c34;
-  border-color: #282c34;
+  background-color: #105160;
+  border-color: #2D7670;
   width: 100%;
   height: 80%;
   font-size: 1.75rem;
 }
 
-#city-search-but {
+button#city-search-but {
   color: white;
-  background-color: #282c34;
-  border-color: #282c34;
+  display: block;
+  background-color: #105160;
+  border-color: #2D7670;
   width: 100%;
   height: 80%;
   font-size: 1.75rem;
+  margin: 0;
+  margin-bottom: 0 !important;
 }
 
+#inlineFormInput {
+  font-size: 1.75rem;
+  padding: 6px 12px;
+  border-color: #2D7670;
+  display: block;
+}

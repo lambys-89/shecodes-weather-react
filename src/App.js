@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import { Container, Row, Col } from "react-bootstrap";
 //import Loader from "react-loader-spinner";
 //import Search from "./citySearch.js";
 import EntryForm from "./EntryForm.js";
@@ -10,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
-          Welcome to the Weather App
+        <h1 id="pageTitle">
+          Weather Forecast
         </h1>
       </header>
       <main className="App-main">
@@ -22,11 +23,13 @@ function App() {
         loop
         src={background}
       />
-      <EntryForm/>
+      <Container>
+        <EntryForm/>
+      </Container>
       </main>
       <footer className="App-footer">
         <p className="open-source-code">
-          <a className="App-link" href="https://github.com/lambys-89/shecodes-plus-project">
+          <a className="App-link" href="https://github.com/lambys-89/shecodes-weather-react">
             Open-source code
           </a>{" "}
           by Sarah Lamb
