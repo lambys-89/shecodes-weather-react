@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import { Container, Row, Col } from "react-bootstrap";
 //import Loader from "react-loader-spinner";
 //import Search from "./citySearch.js";
-import EntryForm from "./EntryForm.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from "./media/01d-vid.mp4";
+import EntryForm from "./EntryForm.js";
+import Forecast from "./Forecast.js";
 
 function App() {
+  const [state, setState] = useState("start");
+
+  function currentWeatherForecast() {
+    setState("current-forecast-view");
+  }
+
+  function cityWeatherForecast() {
+    setState("city-forecast-view");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,9 +34,11 @@ function App() {
         loop
         src={background}
       />
-      <Container>
-        <EntryForm/>
-      </Container>
+        <div>
+          {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} />}
+          {state ==='current-forecast-view' && <Forecast entry="current" />}
+          {state ==='city-forecast-view' && <Forecast entry="city"/>}
+        </div>
       </main>
       <footer className="App-footer">
         <p className="open-source-code">
