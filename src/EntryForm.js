@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Form, Button, Col} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import style from "./App.css";
 
 export default function EntryForm(props) {
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './App.css';
-import { Container, Row, Col } from "react-bootstrap";
 //import Loader from "react-loader-spinner";
 //import Search from "./citySearch.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,15 +11,20 @@ function App() {
   let [state, setState] = useState("start");
   let [city, setCity] = useState("");
 
-  function currentWeatherForecast() {
+  function currentWeatherForecast(event) {
+    event.preventDefault(); 
+    console.log("running current function");
     setState("current-forecast-view");
   }
 
-  function cityWeatherForecast() {
+  function cityWeatherForecast(event) {
+    event.preventDefault();
+    console.log("running city serach function");
     setState("city-forecast-view");
   }
 
   function cityCapture(event) {
+    console.log("running city capture");
     setCity(event.target.value);
   }
 
@@ -41,8 +45,8 @@ function App() {
       />
         <div>
           {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
-          {state ==='current-forecast-view' && <Forecast entry="current" />}
-          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city}/>}
+          {state ==='current-forecast-view' && <Forecast entry="current" currentLoc={currentWeatherForecast}  citySearch={cityWeatherForecast} cityInput={cityCapture} />}
+          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city} currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
         </div>
       </main>
       <footer className="App-footer">

@@ -51,12 +51,12 @@ const radios = [
         </Row>
         <Row className="forecast-main">
             <Col xs={12} sm={12} className="forecast-main-details">
-                <WeatherDetails locationType={props.entry} />
+                <WeatherDetails locationType={props.entry} searchedCity={props.searchVal} />
             </Col>
         </Row>
         <Row className="forecast-future">
             <Col xs={12} sm={12} className="forecast-future-details">
-                <FutureForecast locationType={props.entry} />
+                <FutureForecast locationType={props.entry} searchedCity={props.searchVal} />
             </Col>
         </Row>
     </Container>
