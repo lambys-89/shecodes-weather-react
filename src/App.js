@@ -9,7 +9,8 @@ import EntryForm from "./EntryForm.js";
 import Forecast from "./Forecast.js";
 
 function App() {
-  const [state, setState] = useState("start");
+  let [state, setState] = useState("start");
+  let [city, setCity] = useState("");
 
   function currentWeatherForecast() {
     setState("current-forecast-view");
@@ -19,7 +20,11 @@ function App() {
     setState("city-forecast-view");
   }
 
-  return (
+  function cityCapture(event) {
+    setCity(event.target.value);
+  }
+
+    return (
     <div className="App">
       <header className="App-header">
         <h1 id="pageTitle">
@@ -35,9 +40,9 @@ function App() {
         src={background}
       />
         <div>
-          {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} />}
+          {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
           {state ==='current-forecast-view' && <Forecast entry="current" />}
-          {state ==='city-forecast-view' && <Forecast entry="city"/>}
+          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city}/>}
         </div>
       </main>
       <footer className="App-footer">

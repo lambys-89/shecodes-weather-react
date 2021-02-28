@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./App.css";
 
 export default function EntryForm(props) {
+
     return (
     <Form id="entry-form">
         <Form.Row className="align-items-center">
@@ -17,6 +18,7 @@ export default function EntryForm(props) {
                 className="input"
                 id="inlineFormInput"
                 placeholder="Enter City..."
+                onChange = {props.cityInput}
                 />
             </Col>
             <Col xs={12} sm={4} className="split-half-2-2">
