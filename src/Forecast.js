@@ -4,11 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import WeatherDetails from "./WeatherDetails.js";
 import FutureForecast from "./FutureForecast.js";
 
+
 export default function Forecast(props) {
 
-    //let [search, setSearch] = useState = ("");
+    console.log(props.searchVal)
 
-const [radioValue, setRadioValue] = useState('1');
+let [radioValue, setRadioValue] = useState('1');
 
 const radios = [
     { name: '°C', value: '1' },
@@ -26,8 +27,8 @@ const radios = [
                     placeholder="Enter City..."
                     onChange = {props.cityInput}
                     />
-                    <Button type="submit" className="mb-2" id="forecast-search-but" onClick={props.citySearch}>Submit</Button>
-                    <Button type="submit" className="mb-2" id="forecast-location-but" onClick={props.currentLoc}>📌</Button>
+                    <Button type="submit" className="mb-2" id="forecast-search-but">Submit</Button>
+                    <Button type="submit" className="mb-2" id="forecast-location-but">📌</Button>
                 </Form>
             </Col>
             <Col xs={12} sm={2} className="forecast-header-temp">
@@ -51,12 +52,12 @@ const radios = [
         </Row>
         <Row className="forecast-main">
             <Col xs={12} sm={12} className="forecast-main-details">
-                <WeatherDetails locationType={props.entry} searchedCity={props.searchVal} />
+                <WeatherDetails locationType={props.entry} searchedCity={props.searchVal} units={radioValue} />
             </Col>
         </Row>
         <Row className="forecast-future">
             <Col xs={12} sm={12} className="forecast-future-details">
-                <FutureForecast locationType={props.entry} searchedCity={props.searchVal} />
+                <FutureForecast locationType={props.entry} searchedCity={props.searchVal} units={radioValue}/>
             </Col>
         </Row>
     </Container>

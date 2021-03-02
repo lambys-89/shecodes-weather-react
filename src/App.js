@@ -14,19 +14,24 @@ function App() {
   function currentWeatherForecast(event) {
     event.preventDefault(); 
     console.log("running current function");
+    setState("loading");
     setState("current-forecast-view");
   }
 
   function cityWeatherForecast(event) {
     event.preventDefault();
     console.log("running city serach function");
+    setState("loading");
     setState("city-forecast-view");
   }
 
   function cityCapture(event) {
     console.log("running city capture");
     setCity(event.target.value);
+    console.log(`city is ${city}`);
   }
+
+  console.log(`No function city: ${city}`);
 
     return (
     <div className="App">
@@ -45,8 +50,8 @@ function App() {
       />
         <div>
           {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
-          {state ==='current-forecast-view' && <Forecast entry="current" currentLoc={currentWeatherForecast}  citySearch={cityWeatherForecast} cityInput={cityCapture} />}
-          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city} currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
+          {state ==='current-forecast-view' && <Forecast entry="current"  />}
+          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city}  />}
         </div>
       </main>
       <footer className="App-footer">
