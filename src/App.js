@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
-//import Loader from "react-loader-spinner";
+import Loader from "react-loader-spinner";
 //import Search from "./citySearch.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background from "./media/01d-vid.mp4";
@@ -11,17 +11,25 @@ function App() {
   let [state, setState] = useState("start");
   let [city, setCity] = useState("");
 
+  console.log(state);
+  console.log(city);
+
   function currentWeatherForecast(event) {
     event.preventDefault(); 
     console.log("running current function");
-    setState("loading");
     setState("current-forecast-view");
+  }
+
+  function loaderPage(event) {
+    event.preventDefault(); 
+    console.log("running loader");
+    setState("loading-page");
   }
 
   function cityWeatherForecast(event) {
     event.preventDefault();
-    console.log("running city serach function");
-    setState("loading");
+    console.log("running city search function");
+    console.log({state});
     setState("city-forecast-view");
   }
 
@@ -50,8 +58,15 @@ function App() {
       />
         <div>
           {state ==='start' && <EntryForm currentLoc={currentWeatherForecast} citySearch={cityWeatherForecast} cityInput={cityCapture} />}
-          {state ==='current-forecast-view' && <Forecast entry="current"  />}
-          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city}  />}
+          {state ==='current-forecast-view' && <Forecast entry="current" cityInput={cityCapture} loadState={loaderPage} />}
+          {state ==='city-forecast-view' && <Forecast entry="city" searchVal={city} cityInput={cityCapture} citySearch={cityWeatherForecast}/>}
+          {state ==='loading-page' && <Loader
+        type="Puff"
+        color="#105160"
+        height={100}
+        width={100}
+        timeout={3000}
+        /> && cityWeatherForecast()}
         </div>
       </main>
       <footer className="App-footer">

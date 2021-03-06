@@ -7,7 +7,7 @@ import FutureForecast from "./FutureForecast.js";
 
 export default function Forecast(props) {
 
-    console.log(props.searchVal)
+    console.log(props.searchVal);
 
 let [radioValue, setRadioValue] = useState('1');
 
@@ -27,7 +27,7 @@ const radios = [
                     placeholder="Enter City..."
                     onChange = {props.cityInput}
                     />
-                    <Button type="submit" className="mb-2" id="forecast-search-but">Submit</Button>
+                    <Button type="submit" className="mb-2" id="forecast-search-but" onClick={props.loadState} >Submit</Button>
                     <Button type="submit" className="mb-2" id="forecast-location-but">📌</Button>
                 </Form>
             </Col>
